@@ -1,0 +1,87 @@
+# .cursorrules
+
+# Stack and design guidelines
+guidelines:
+  - Use Next.js (with the App Router), Tailwind CSS, and Magic-UI as the primary stack for development.
+  - Follow the design palette:
+      - Dark Gray: "#10141A"
+      - Light Gray: "#E4E4E4"
+      - Neutral Gray: ["#E6E6E6", "#F5F5F5"]
+      - White: "#FFFFFF"
+  - Maintain a minimal and luxurious aesthetic inspired by Apple's design principles, with clean layouts and ample whitespace.
+  - Apply smooth transitions and micro-interactions to enhance interactivity and the luxury feel.
+  - Use Tailwind CSS plugins like tailwindcss-typography and tailwindcss-aspect-ratio for styled content blocks and responsive media.
+  - Optimize for Core Web Vitals (e.g., FCP, LCP, CLS) and ensure performance-conscious design and interactions.
+  - All components must be scalable, reusable, and adhere to the design palette.
+  - Ensure responsive design across all screen sizes (mobile, tablet, desktop).
+  - Optimize performance with lazy-loading assets, dynamic imports, and minimizing DOM reflows.
+  - Follow WCAG 2.1 accessibility standards, ensuring proper contrast and keyboard navigation.
+  - Add Tailwind utilities for breakpoint-based tweaks (e.g., sm:, md:, lg:, xl:), and test layouts on devices or emulators for a polished experience.
+  - Use Next.js' `next/image` for optimized image handling, serving compressed images (e.g., WebP) with lazy-loading.
+  - Resolve all ESLint and Prettier warnings and errors before committing code.
+  - Use strict TypeScript to prevent runtime errors and ensure type safety.
+  - Include unit tests for all custom components and validate changes across devices and browsers.
+  - All design changes should reference the provided design palette and style guidelines. Avoid deviations unless explicitly approved.
+  - Perform visual regression testing to ensure design consistency across updates.
+  - Write clean, modular, and maintainable code. Avoid breaking the existing codebase or introducing bugs.
+  - **Important:** Always consult the [Next.js 15 App Router documentation](https://nextjs.org/docs/app/getting-started) before making any routing or architectural changes.
+
+# Component usage restrictions
+componentRules:
+  autoGeneration:
+    allowedComponents:
+      - shadcn
+      - magicui
+    disallowedComponents:
+      - "*"
+    note: "When building components automatically, restrict usage to only Shadcn and Magic-UI libraries."
+
+# Emphasize the use of Next.js App Router
+nextjs:
+  router: app
+  guidelines:
+    - "Utilize the Next.js App Router for all routing purposes."
+    - "Organize pages and components according to the App Router conventions (e.g., using the 'app' directory structure)."
+    - "Leverage server and client components appropriately as per Next.js App Router guidelines."
+    - "Check the [Next.js 15 App Router documentation](https://nextjs.org/docs/app/getting-started) to ensure adherence to best practices and latest updates before modifying routing logic."
+
+# File and directory inclusions/exclusions for cursor operations
+files:
+  exclude:
+    - node_modules/
+    - .next/
+    - out/
+    - .git/
+    - dist/
+    - build/
+  include:
+    # Assuming your Next.js app and related code are under the "src/" directory
+    - src/app/**/*.{js,jsx,ts,tsx}       # Focus on the App Router directory inside src
+    - src/pages/**/*.{js,jsx,ts,tsx}     # Include legacy pages directory if present within src
+    - src/components/**/*.{js,jsx,ts,tsx}
+    - src/lib/**/*.{js,jsx,ts,tsx}
+    - src/styles/**/*.css
+    - tailwind.config.js
+    - postcss.config.js
+    - next.config.js
+    - tsconfig.json
+
+# Additional rules specific to technologies used
+techRules:
+  jsx:
+    enforce-self-closing: true
+    max-props-per-line: 3
+    indent: 2
+  typescript:
+    enforce-explicit-any: false
+    strict-mode: true
+    max-line-length: 100
+  tailwind:
+    enforce-sorting: true
+  formatting:
+    use-prettier: true
+    prettier-plugin-tailwindcss: true
+  framer-motion:
+    prefer-variants: true
+
+# End of .cursorrules
